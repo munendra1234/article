@@ -109,35 +109,56 @@
                 <p>Now, we iterate through each element of the array a2. If that element is present in our Hashmap, then it is printed and the record of that element is removed from the hashmap as shown in figure 3. If the element is not present then we do nothing.
                 </p>
                 <div class="img"><img class="articleImages" name="common_element_235_3.png" alt="img" /></div>
+                <p>On iterating through all the elements of a2, the output obtained is as follows.
+                </p>
+                <div class="img"><img class="articleImages" name="common_element_235_4.png" alt="img" /></div>
         <div class='codeEditor' id=>
             <div class='editorialCode'>
+              <div class="content">
+                <p>CODE</p>
+              </div>
+              import java.io.*;
               import java.util.*;
+
               public class Main{
-              public static void main(String[] args)
-              {
-              Scanner scn = new Scanner(System.in);
-              int n = scn.nextInt();
-              for(int i = 1;i<=n;i++)
-              {
-              for(int j =1;j<=n;j++)
-              {
-              if( j == 1 || j == n) //if first or last column
-              {
-              System.out.print("*\t");
+
+              public static void main(String[] args) throws Exception {
+              Scanner scn=new Scanner(System.in);
+              int n1=scn.nextInt();
+              int[]a1=new int[n1];
+              for(int i=0;i<n1;i++){
+              a1[i]=scn.nextInt();
               }
-              else if(i > n/2 && (i ==j || i +j == n + 1)) // part of either
-              diagonal below middle row
+              int n2=scn.nextInt();
+              int[]a2=new int[n2];
+              for(int i=0;i<n2;i++){
+              a2[i]=scn.nextInt();
+              }
+
+              HashMap<Integer,Integer> hm=new HashMap(); 
+              for(int val: a1)
               {
-              System.out.print("*\t");
+              if(hm.containsKey(val)){  
+                  int old=hm.get(val);
+                  int now=old+1;
+                  hm.put(val,now);
               }
               else
               {
-              System.out.print("\t");
+                  hm.put(val,1);
               }
               }
-              System.out.println();
+
+              for(int val : a2){   
+              if(hm.containsKey(val))
+              {
+                  System.out.println(val);
+                  hm.remove(val);
               }
               }
+
+              }
+
               }
 
             </div>
@@ -147,7 +168,23 @@
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
         </div>
 
-
+        <div class="content">
+          <p>TIME & SPACE COMPLEXITY</p>
+          <p>TIME COMPLEXITY- O(n)
+          </p>
+          <p>SPACE COMPLEXITY- O(n) where n=number of entities in the hashmap.
+          </p><br>
+          <p>The above code is quite straightforward. If you have any difficulties in understanding it, we suggest you to through the solution video of this question.
+          </p>
+           
+          <p>Get Common Elements-1 Solution video</p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://youtu.be/HPSykge6EGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>Here, we conclude this problem. We hope you are enjoying solving all these questions. We’ll see you with a new problem.
+        </p>
+        <p></p>
+        </div>
 
       <!--   <div class="analysis">
           <div class="sub-heading-1">Analysis</div>
@@ -173,12 +210,12 @@
 
         <div class="article-tags">
 
-          <div class="tag">Pattern 20 </div>
-
+          <div class="tag"> Hashmap </div>
+          <div class="tag">  Arrays </div>
         </div>
         <div class="author">
           <div class="sub-heading-2">Author:
-                <span> Arnab Sen</span>
+                <span>Shreeya Gupta</span>
           </div>
         </div>
         <div class="share-options">
