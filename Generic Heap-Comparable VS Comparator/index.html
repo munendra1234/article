@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Generic Heap-Comparable VS Comparator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>Generic Heap-Comparable VS Comparator</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              “There are only 10 types of people in the world. Ones who understand computer programming, others who don’t.”<br>
+             </p>
+            
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">Generic Heap-Comparable VS Comparator </div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="analysis">
+            <div class="sub-heading-1">Introduction:</div>
+                <div class="content">
+                <p> Welcome back, dear reader. So, how is it going? We hope that you have understood the hashmaps and heaps section completely till here. So, this is the last article and video in this section in our foundation course. So in this article, we study how priority queue implements the Comparator and Comparable interfaces and how we can make our custom made priority queue implement them too. So, are you excited? Let’s get started.
+                ></p>
+                
+              </div>
+              <div class="sub-heading-2">Explanation:</div>
+              <div class="content">
+                <p>Have a look at the code given below:
+                </p>
+              </div>
+              <div class='codeEditor' id=>
+                <div class='editorialCode'>
+                  import java.util.*;
+                  import java.io.*;
+                   
+                  public class Main {
+                      
+                      public static void main(String[] args)
+                      {
+                          int [] arr={10,2,17,3,18,9,22};
+                          PriorityQueue pq=new PriorityQueue<>();
+                   
+                          for(int val:arr)
+                          {
+                              pq.add(val);
+                          }
+                   
+                          while(pq.size()!=0)
+                          {
+                              int val=pq.peek();
+                              System.out.println(val);
+                              pq.remove();
+                          }
+                      }
+                  }
+                  
+                  
+              </div>
+              <pre class='output'>
+              </pre>
+              <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+              <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+             </div>
+             <div class="content">
+              <p>In the code above, we have created a priority queue and we have inserted the elements into it from an array. When we remove the elements from this priority queue, we will get all the elements in an ascending order i.e. the elements get removed in the order of their priority (smallest element having the highest priority). (Have a look at the output given below)
+              </p>
+              <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_1.png" alt="img" /></div>
+              <p>The same behavior can be shown by the priority queue that we have implemented and created ourselves using heap. You may refer to the PRIORITY QUEUE USING HEAP video to create your own priority queue if you haven’t till now. Now the question is,<br><p>The same behavior can be shown by the priority queue that we have implemented and created ourselves using heap. You may refer to the PRIORITY QUEUE USING HEAP video to create your own priority queue if you haven’t till now. Now the question is</p></p>
+            <p>For instance, we have created a student class below and we try to add them to the priority queue. They will get added (no doubts about that). But, when we try to remove them, the priority is not getting decided and we get an error:
+            </p>  
+            </div>
+         </div> 
+        </div>  
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+            <div class="content">
+              <p>what if the priority of the elements that we insert into the priority queue cannot be decided by the priority queue?
+              </p>
+              <!-- <p>We will use Priority Queue for solving this problem. Let’s call this Priority Queue, pq.
+              </p>
+              <p>If i is less than k then we simply add the element to the pq. Otherwise we compare the peek() of Priority Queue with the currently visited element of the array. 
+              </p>
+                <p>If this element is greater than the peek() of the pq then we remove the peek value of pq and add the current element of array to the pq.
+                </p>
+                <p> Following these steps, at the end, after coming out of the for loop, we will have k largest elements stored in the pq. </p>
+                <p>Then we empty out the pq using remove() while simultaneously printing the value of removed element.
+                </p> -->
+              
+                <p>Let’s code this:</p>
+                <!-- <div class="img"><img class="articleImages" name="k_largest_element_1.png" alt="img" /></div>
+                <p>Yes, that looks perfect!!</p> -->
+              </div>
+            </div>
+            <div class='codeEditor' id=>
+              <div class='editorialCode'>
+                import java.util.*;
+                import java.io.*;
+                 
+                public class Main {
+                 
+                    static class Student{
+                        int rno;
+                        int ht;
+                        int weight;
+                 
+                        Student(int rno,int ht,int weight)
+                        {
+                            this.rno=rno;
+                            this.ht=ht;
+                            this.weight=weight;
+                        }
+                    }
+                    
+                    public static void main(String[] args)
+                    {
+                        int [] arr={10,2,17,3,18,9,22};
+                        PriorityQueue < Student> pq=new PriorityQueue < >();
+                     
+                        pq.add(new Student(1,180,82));
+                        pq.add(new Student(2,170,81));
+                        pq.add(new Student(3,200,85));
+                        pq.add(new Student(4,190,87));
+                        pq.add(new Student(5,185,70));
+                 
+                        while(pq.size()!=0)
+                        {
+                            System.out.println(pq.peek());
+                            pq.remove();
+                        }
+                    }
+                }
+                
+                
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+           </div>
+           <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_2.png" alt="img" /></div>
+          <div class="content">
+            <p>This is because earlier we were comparing integers and the priority queue was able to compare two integers. Now, we have given our own class and the priority queue is not able to decide the priority.
+            </p>
+           
+            <p>If you remember (from the create priority queue using heap video) that we used to compare the parent with its child and the value of higher priority i.e. lower in value used to move upwards i.e. we use upheapify for adding the value  into the priority queue. Now, the problem is that the parent student object and the child student object cannot be compared as they are not simple integer values. So, how can we get rid of this problem and compare two student values?
+            </p>
+          </div>
+          <div class="analysis">
+          <p><b>The priority queue in Java wants that whatever we are passing into the priority queue, that must implement an interface called Comparable.:</b></p>
+            <div class="content">
+              <p><b>Now the question is what is an interface?
+              </b></p>
+            </div>
+            <div class="sub-heading-2">Interface:
+            </div>
+            <div class="content">
+              <p><b>Interface is just like a class. The difference between an interface and a class is that an interface will not have the body of the functions inside it. It will have only the signature of the functions. (signature means the function name, parameter and return type).
+              </b></p>
+              <p>An interface can also be called as the contract for a class. This is because when a class has to implement an interface, it has to provide all the functions (bodies) with the same signature as that in the interface to it. It is just like to use an interface, class honors its contract.
+              </p>
+              <p>So, the interface Comparable has only one function called compareTo(parameter). This function has an integer return type that is:
+              </p>
+              <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_3.png" alt="img" /></div>
+              <p>But, if this is a function to compare two entities, why does it have only one parameter? Actually, there are two parameters. One is the caller object for this </p>
+            <p>function which we call as the “this” object and the other object is passed as a parameter to the function.
+            </p>
+            </div>
+            <div class="sub-heading-3">Now, what does this function do?
+
+            </div>
+            <div class="content">
+              <p><b>This function compares the value of “this” and the other object (passed as a parameter). If the value of “this” is greater than the other object, this function returns a positive value. If they are equal, it returns zero, else it returns a negative value. But, it is able to compare only integer values. So, we have to modify this function inside the class in which we implement the Comparable interface. This can be seen in the code shown below:
+              </b></p>
+            </div>
+        </div> 
+        <div class='codeEditor' id=>
+          <div class='editorialCode'>
+            import java.util.*;
+            import java.io.*;
+             
+            public class Main {
+             
+                static class Student implements Comparable< Student>{
+                    int rno;
+                    int ht;
+                    int weight;
+             
+                    Student(int rno,int ht,int weight)
+                    {
+                        this.rno=rno;
+                        this.ht=ht;
+                        this.weight=weight;
+                    }
+             
+                    public int compareTo(Student o)
+                    {
+                        return this.rno-o.rno;
+                    }
+             
+                    public String toString()
+                    {
+                        return "rno= "+ rno +"height= "+ ht+ "weight= " + weight;
+                    }
+                }
+                
+                public static void main(String[] args)
+                {
+                    PriorityQueue< Student> pq=new PriorityQueue<>();
+                 
+                    pq.add(new Student(1,180,82));
+                    pq.add(new Student(2,170,81));
+                    pq.add(new Student(3,200,85));
+                    pq.add(new Student(4,190,87));
+                    pq.add(new Student(5,185,70));
+             
+                    while(pq.size()!=0)
+                    {
+                        System.out.println(pq.peek());
+                        pq.remove();
+                    }
+                }
+            }
+        </div>
+        <pre class='output'>
+        </pre>
+        <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+        <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+       </div>
+          <div class="content">
+            <p><b>We have used the toString() function to print the object for the class student as we get the address of the objects if we try to print the objects directly. So, the 
+            </b></p>
+            <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_4.png" alt="img" /></div>
+            <p>What if we want to reverse the priority? Well, it is simple. We compare this with the other object and if this value minus the other object value is negative, we send it upwards in the heap. If we return the opposite of what we are returning i.e. instead of returning this roll number minus other object roll number, if we return other object roll number minus this roll number, the priority will be reversed. Why? Think!!!!
+            </p>
+
+            <p>We request you to watch the solution video  to understand how we can reverse the priority by interchanging the position of operands in the compareTo function.
+            </p>
+            <div class="youtube-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ?start=857&end=1015" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class='codeEditor' id=>
+            <div class='editorialCode'>
+              import java.util.*;
+              import java.io.*;
+               
+              public class Main {
+               
+                  static class Student implements Comparable< Student>{
+                      int rno;
+                      int ht;
+                      int weight;
+               
+                      Student(int rno,int ht,int weight)
+                      {
+                          this.rno=rno;
+                          this.ht=ht;
+                          this.weight=weight;
+                      }
+               
+                      public int compareTo(Student o)
+                      {
+                          return o.rno-this.rno;
+                      }
+               
+                      public String toString()
+                      {
+                          return "rno= "+ rno +" height= "+ ht+ " weight= " + weight;
+                      }
+                  }
+                  
+                  public static void main(String[] args)
+                  {
+                      PriorityQueue< Student> pq=new PriorityQueue<>();
+                   
+                      pq.add(new Student(1,180,82));
+                      pq.add(new Student(2,170,81));
+                      pq.add(new Student(3,200,85));
+                      pq.add(new Student(4,190,87));
+                      pq.add(new Student(5,185,70));
+               
+                      while(pq.size()!=0)
+                      {
+                          System.out.println(pq.peek());
+                          pq.remove();
+                      }
+                  }
+              }
+              
+          </div>
+          <pre class='output'>
+          </pre>
+          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+         </div>
+           <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_5.png" alt="img" /></div>
+           <p>Now we want to implement this feature to our custom created priority queue. We will make our priority queue generic i.e. it will be able to add any kind of data that we like to and not only integers.
+          </p>
+          <p>Also, we will now not compare by the values, rather we will type cast the objects into comparable and then compare them using the toCompare function. 
+          </p>
+          <p>Dear reader, we request you to watch the solution video to understand the above mentioned concept and code completely as it is difficult to explain the changes made to the code here. Also, we again request you that if you have not watched the CREATE PRIORITY QUEUE USING HEAP VIDEO, you should watch it first as the code for the same is used and modifications are made to it. For that you must have that code by-hearted till now i.e. you must have practiced it at least once without looking at the code from the video.
+          </p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ?start=1057&end=1385" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+          <p>Code</p>
+          <div class='codeEditor' id=>
+            <div class='editorialCode'>
+              import java.io.*;
+              import java.util.*;
+               
+              public class Main 
+              {
+               
+                public static class PriorityQueue < T>
+                {
+                  ArrayList< T> data;
+               
+                  public PriorityQueue()
+                 {
+                    data = new ArrayList< T >();
+                  }
+               
+                  private boolean isSmaller(int i,int j)
+                  {
+                       Comparable ith=(Comparable) data.get(i);
+                       Comparable jth=(Comparable) data.get(j);
+                       if(ith.compareTo(jth)< 0)
+                       {
+                         return true;
+                       }
+                       else{
+                         return false;
+                       }
+                  }
+               
+                  public void add(T val) 
+                  {
+                    data.add(val);
+                    upheapify(data.size() - 1);
+                  }
+               
+                  private void upheapify(int i) 
+                  {
+                    if (i = = 0) {
+                      return;
+                  }
+               
+                    int pi = (i - 1) / 2;
+                    if (isSmaller(i, pi)= = true) 
+                    {
+                      swap(i, pi);
+                      upheapify(pi);
+                    }
+                  }
+               
+                  private void swap(int i, int j) 
+                  {
+                    T ith = data.get(i);
+                    T jth = data.get(j);
+                    data.set(i, jth);
+                    data.set(j, ith);
+                  }
+               
+                  public T remove() 
+                  {
+                    if(this.size() = = 0)
+                    {
+                      System.out.println(" Underflow " ) ;
+                      return null;
+                    }
+                    swap(0, data.size() - 1);
+                    T val = data.remove(data.size() - 1);
+                    downheapify(0);
+                    return val;
+                  }
+               
+                  private void downheapify(int i) 
+                  {
+                    int mini = i;
+               
+                    int li = 2 * i + 1;
+                    if (li < data.size() && isSmaller(li, mni)= = true) {
+                      mini = li;
+                  }
+               
+                    int ri = 2 * i + 2;
+                    if (ri < data.size() && isSmaller(ri, mini)= = true) 
+                    {
+                      mini = ri;
+                    }
+               
+                    if (mini != i) 
+                    {
+                      swap(i, mini);
+                      downheapify(mini);
+                    }
+                  }
+               
+                  public T peek() 
+                  {
+                    if(this.size() = = 0)
+                  {
+                      System.out.println( " Underflow" ) ;
+                      return null;
+                  }
+               
+                    return data.get(0);
+                  }
+               
+                  public int size() 
+                  {
+                    return data.size();
+                  }
+                }
+               
+                static class Student implements Comparable < Student>
+                {
+                  int rno;
+                  int ht;
+                  int weight;
+               
+                  Student(int rno,int ht,int weight)
+                  {
+                      this.rno=rno;
+                      this.ht=ht;
+                      this.weight=weight;
+                  }
+               
+                  public int compareTo(Student o)
+                  {
+                      return o.rno-this.rno;
+                  }
+               
+                  public String toString()
+                  {
+                      return "rno= "+ rno +" height= "+ ht+ " weight= " + weight;
+                  }
+              }
+               
+              public static void main(String[] args)
+              {
+                  PriorityQueue< Student> pq=new PriorityQueue<>();
+               
+                  pq.add(new Student(1,180,82));
+                  pq.add(new Student(2,170,81));
+                  pq.add(new Student(3,200,85));
+                  pq.add(new Student(4,190,87));
+                  pq.add(new Student(5,185,70));
+               
+                  while(pq.size()!=0)
+                  {
+                      System.out.println(pq.peek());
+                      pq.remove();
+                  }
+              }
+            }
+          </div>
+          <pre class='output'>
+          </pre>
+          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+         </div>
+         <p>The output for the above code will be:
+        </p>
+        <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_6.png" alt="img" /></div>
+        <p>So, dear reader, we hope that you have understood till here. If you have any doubts till here, refer to the solution video to understand the concepts completely and in depth.
+        </p>
+        <div class="youtube-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ?start=0&end=1385&end=" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p>There is another method by which we can implement the things we learnt above i.e. Comparator.
+      </p>
+      <p>Comparator is also an interface. This is a little different from the Comparable. Have a look at the code shown below:
+      </p>
+          </div>
+          <div class='codeEditor' id=>
+            <div class='editorialCode'>
+              import java.util.*;
+              import java.io.*;
+               
+              public class Main {
+               
+                  static class Student implements Comparable< Student>{
+                      int rno;
+                      int ht;
+                      int weight;
+               
+                      Student(int rno,int ht,int weight)
+                      {
+                          this.rno=rno;
+                          this.ht=ht;
+                          this.weight=weight;
+                      }
+               
+                      public int compareTo(Student o)
+                      {
+                          return o.rno-this.rno;
+                      }
+               
+                      public String toString()
+                      {
+                          return "rno= "+ rno +" height= "+ ht+ " weight= " + weight;
+                      }
+                  }
+               
+                  static class StudentHtComparator implements Comparator< Student>{
+                       public int compare(Student s1,Student s2)
+                       {
+                           return s1.ht-s2.ht;
+                       }
+                  }
+               
+                  static class StudentWtComparator implements Comparator< Student>
+                  {
+                      public int compare(Student s1,Student s2)
+                      {
+                          return s1.weight-s2.weight;
+                      }
+                  }
+                  
+                  public static void main(String[] args)
+                  {
+                      PriorityQueue< Student> pq=new PriorityQueue<>(new StudentHtComparator());
+                   
+                      pq.add(new Student(1,180,82));
+                      pq.add(new Student(2,170,81));
+                      pq.add(new Student(3,200,85));
+                      pq.add(new Student(4,190,87));
+                      pq.add(new Student(5,185,70));
+               
+                      while(pq.size()!=0)
+                      {
+                          System.out.println(pq.peek());
+                          pq.remove();
+                      }
+                  }
+              }
+              
+              
+          </div>
+          <pre class='output'>
+          </pre>
+          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+         </div>
+         <div class="content">
+           <p>As you can see, unlike Comparable interface, we are implementing the comparator interface in a different class and not in the Student class itself. Also, we can clearly see that the Comparable has only one parameter because the first object is the “this” object. Since the comparator is not in the Student class rather in a different class, it will have both the parameters as it cannot be called by an object of Student class. In the above example, we have passed the Comparator which sets the priority on the basis of height of the students. So, we  should get the student of least height first when we remove from this priority  queue. Let’s see the output of the above code:</p>
+           <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_7.png" alt="img" /></div>
+           <p>As you can see, the students are getting removed in the priority of their heights i.e.  the student with the least height got removed first and so on. Try to pass the weight comparator and get the output on the basis of weights of the students yourself. Also try to reverse the priority in both the comparators.
+          </p>
+          <p><b>Note :</b><i>If we do not pass any comparator to the priority queue then it will work as per the Comparable interface.</i></p>
+          
+        <p>Now we want to add this functionality to our custom created priority queue. So, we will make another constructor with a Comparator as a parameter and we will also make a Comparator data member. Now, if the comparator data member is null i.e. comparator was not passed in the priority queue while creating it then, we will make the priority queue work on the basis of the Comparable else it will work as per the Comparator passed.
+        </p>  
+        <p>We recommend you refer to the solution video (23:05-29:30) to understand about the comparator in detail and understand some small changes we have made to the previous code shown below:
+        </p>
+        <div class="youtube-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ?start=1385&end=1770" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+        </div>
+        <div class='codeEditor' id=>
+          <div class='editorialCode'>
+            import java.io.*;
+            import java.util.*;
+             
+            public class Main {
+             
+              public static class PriorityQueue <T>{
+                ArrayList<T> data;
+                Comparator comp;
+             
+                public PriorityQueue() {
+                  data = new ArrayList < >();
+                  comp=null;
+                }
+             
+                public PriorityQueue(Comparator comp) {
+                  data = new ArrayList < >();
+                  this.comp=comp;
+                }
+             
+                private boolean isSmaller(int i,int j)
+                {
+                  if(comp==null){
+                      Comparable ith=(Comparable) data.get(i);
+                      Comparable jth=(Comparable) data.get(j);
+                      if(ith.compareTo(jth)< 0)
+                      {
+                        return true;
+                      }
+                      else{
+                        return false;
+                      }
+                    }
+                    else
+                    {
+                      T ith=data.get(i);
+                      T jth=data.get(j);
+             
+                      if(comp.compare(ith, jth) < 0)
+                      {
+                        return true;
+                      }
+                      else
+                      {
+                        return false;
+                      }
+                    }
+                }
+             
+                public void add(T val) {
+                  data.add(val);
+                  upheapify(data.size() - 1);
+                }
+             
+                private void upheapify(int i) {
+                  if (i = = 0) {
+                    return;
+                  }
+             
+                  int pi = (i - 1) / 2;
+                  if (isSmaller(i, pi)= = true) {
+                    swap(i, pi);
+                    upheapify(pi);
+                  }
+                }
+             
+                private void swap(int i, int j) {
+                  T ith = data.get(i);
+                  T jth = data.get(j);
+                  data.set(i, jth);
+                  data.set(j, ith);
+                }
+             
+                public T remove() {
+                  if(this.size() = = 0){
+                    System.out.println(" Underflow " );
+                    return null;
+                  }
+                  swap(0, data.size() - 1);
+                  T val = data.remove(data.size() - 1);
+                  downheapify(0);
+                  return val;
+                }
+             
+                private void downheapify(int i) {
+                  int mini = i;
+             
+                  int li = 2 * i + 1;
+                  if (li < data.size() && isSmaller(li, mini)= = true) {
+                    mini = li;
+                  }
+             
+                  int ri = 2 * i + 2;
+                  if (ri < data.size() && isSmaller(ri, mini)= = true) {
+                    mini = ri;
+                  }
+             
+                  if (mini != i ) {
+                    swap(i, mini);
+                    downheapify(mini);
+                  }
+                }
+             
+                public T peek() {
+                  if(this.size() = = 0 ) 
+                  {
+                    System.out.println( " Underflow " );
+                    return null;
+                  }
+             
+                  return data.get(0);
+                }
+             
+                public int size() {
+                  return data.size();
+                }
+              }
+             
+              static class Student implements Comparable< Student>{
+                int rno;
+                int ht;
+                int weight;
+             
+                Student(int rno,int ht,int weight)
+                {
+                    this.rno=rno;
+                    this.ht=ht;
+                    this.weight=weight;
+                }
+             
+                public int compareTo(Student o)
+                {
+                    return o.rno-this.rno;
+                }
+             
+                public String toString()
+                {
+                    return "rno= "+ rno +" height= "+ ht+ " weight= " + weight;
+                }
+            }
+             
+            static class StudentHtComparator implements Comparator< Student>{
+              public int compare(Student s1,Student s2)
+              {
+                  return s1.ht-s2.ht;
+              }
+            }
+             
+            static class StudentWtComparator implements Comparator< Student>
+            {
+             public int compare(Student s1,Student s2)
+             {
+                 return s1.weight-s2.weight;
+             }
+            }
+             
+            public static void main(String[] args)
+            {
+                PriorityQueue< Student> pq=new PriorityQueue<>(new StudentWtComparator());
+             
+                pq.add(new Student(1,180,82));
+                pq.add(new Student(2,170,81));
+                pq.add(new Student(3,200,85));
+                pq.add(new Student(4,190,87));
+                pq.add(new Student(5,185,70));
+             
+                while(pq.size()!=0)
+                {
+                    System.out.println(pq.peek());
+                    pq.remove();
+                }
+            } 
+            }
+        </div>
+        <pre class='output'>
+        </pre>
+        <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+        <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+       </div>
+        <div class="content">
+          <p>The output for the above code is:
+          </p>
+          <div class="img"><img class="articleImages" name="generic_heap_comparable_vs_comparable_8.png" alt="img" /></div>
+          <p>So, dear reader, we hope that you have understood the comparable and comparator and the difference between them too. With this, we have come to an end of this article as well as the hashmaps and heaps section. If you have any doubts regarding any concept, refer to the complete solution video.
+          </p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p><b>Suggestions:
+        </b></p>
+        <p>Here are some suggestions from our side that you do not want to miss:
+        </p>
+        <p>This article and the video corresponding to it are based on a lot of new and a little bit complicated concepts. So, we recommend you go through both once. If you have just read the article and not watched the solution video, we recommend you watch it here. This will help your concepts get stronger.
+        </p>
+        <div class="youtube-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/DE835GvxZMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+        <p>The complete section of hashmaps and heaps was full of interesting topics and new concepts for you. We recommend that you should revise it quickly before moving forward with the graph data-structure so that you do not think that you are forgetting anything. So, keep revising and practicing. Till then, Happy Coding!!!
+        </p>
+        </div>
+
+          <div class="article-tags">
+          <div class="tag"> Arrays   </div>
+          <div class="tag">  Searching  </div>
+          <div class="tag"> Sorting  </div>
+            </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span> Guneet Malhotra
+
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
