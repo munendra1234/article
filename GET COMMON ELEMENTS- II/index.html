@@ -90,11 +90,14 @@
                 </p>
                 <p> This is shown in figure 3.</p>
                 <div class="img"><img class="articleImages" name="get_common_element_236_3.png" alt="img" /></div>
-              <div class='editorialCode'>
+              <!-- <div class='editorialCode'> -->
               <div class="content">
                 <p>CODE</p>
                 <p>If you have done the previous question, then this problem’s code will be a breeze for you.</p>
               </div>
+            </div>
+        <div class='codeEditor' id=>
+            <div class='editorialCode'>
               import java.io.*;
               import java.util.*;
 
@@ -105,18 +108,18 @@
               Scanner scn=new Scanner(System.in);
               int n1=scn.nextInt();
               int[]a1=new int[n1];
-              for(int i=0;i<n1;i++)
+              for(int i=0;i < n1;i++)
               {
                   a1[i]=scn.nextInt();
               }
               int n2=scn.nextInt();
               int[]a2=new int[n2];
-              for(int i=0;i<n2;i++)
+              for(int i=0;i < n2;i++)
               {
                   a2[i]=scn.nextInt();
               }
 
-              HashMap<Integer, Integer> hm=new HashMap();
+              HashMap< Integer, Integer> hm=new HashMap();
               for(int val: a1)
               {
                   if(hm.containsKey(val)){
