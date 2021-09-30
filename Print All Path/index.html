@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Find all Paths in a Graph 
+     <title>Print All Path
     </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -36,7 +36,7 @@
           <div class="c2"></div>
         </div>
         <div class="topic-name">
-            <p>Find all Paths in a Graph </p> 
+            <p>Print All Path </p> 
         </div>
         <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
             <i class="fa fa-chevron-down"></i>
@@ -91,7 +91,7 @@
              </p>
               <p>Study the example below for better understanding.
               </p>
-              <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_1.png" alt="img" /></div>
+              <div class="img"><img class="articleImages" name="print_all_path_1.png" alt="img" /></div>
               <p>In the above example, for the given graph, source being 0 and destination being 6, there are 4 possible paths.
               </p>
               <div class="youtube-video">
@@ -217,7 +217,7 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/taL2G6jDLog" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div> -->
             <p>Let’s take an example and dry run this code.</p>
-              <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_2.png" alt="img" /></div>
+              <div class="img"><img class="articleImages" name="print_all_path_2.png" alt="img" /></div>
             <p>
               In the above figure, you can see graph representation corresponding to the graph, Array List. Let the source be 0 and destination be 6.
               
@@ -308,7 +308,7 @@
             </li>
             <li>Statement-1 is true for source 6. Therefore the string (0 1 2 3 4 5 6) will be printed and the function will be returned to printAllpath(5, 6, “0 1 2 3 4 5”).
             </li>
-            <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_3.png" alt="img" /></div>
+            <div class="img"><img class="articleImages" name="print_all_path_3.png" alt="img" /></div>
 
 
 
@@ -347,7 +347,7 @@
             <li> After that control returns to <b> printAllPath(0, 6, “0”).</b></li>
             <li>In<b>printAllPath(0, 6, “0”), since all the neighbors have not been explored, therefore a call is made to the next unexplored neighbor that is 3 in this case.</b></li>
            </ul>
-            <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_4.png" alt="img" /></div>
+            <div class="img"><img class="articleImages" name="print_all_path_4.png" alt="img" /></div>
            <ul>
             <li>Then we check whether 3 has been visited or not. 3 hasn’t been visited,<b>
               
@@ -403,7 +403,7 @@
             <li>Then we check whether 5 has been visited earlier or not. 5 has not been visited, therefore <b>printAllPath(5, 6, “0 3 4 5”) will be called.
             </b></li>
            </ul>
-           <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_5.png" alt="img" /></div>
+           <div class="img"><img class="articleImages" name="print_all_path_5.png" alt="img" /></div>
 
            <ul>
             <li><b>Statement-1 is false for source 5. So control jumps to statement-2 and the value at index 5 is set true in the visited array.
@@ -433,7 +433,7 @@
           <li>In<b> printAllPath(0, 6, “0”), since all the neighbors have been explored, now control comes to statement-5 and the value at index 0 is set to false in the visited array.
           </b></li>
           </ul>
-          <div class="img"><img class="articleImages" name="find_all_paths_in_a_graph_6.png" alt="img" /></div>
+          <div class="img"><img class="articleImages" name="print_all_path_6.png" alt="img" /></div>
           <div class="content">
             <p>
               We hope that this example is clear to you. But for more clarity, watch [13:23 - 26:55], this portion of the lecture video of this problem.
