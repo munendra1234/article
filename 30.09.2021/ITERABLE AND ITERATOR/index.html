@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>ITERABLE AND ITERATOR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>ITERABLE AND ITERATOR
+            </p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              "You may not control all the events that happen to you, but you can decide not to be reduced by them." <br>-Maya Angelou
+ 
+             </p>
+            
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">ITERABLE AND ITERATOR</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p>Welcome back reader!!
+            </p>
+           
+            <p>Hey coder. In this video we are going to learn about the “Iterable and Iterator” interfaces.
+            </p>
+            
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/search-in-a-sorted-2d-array-official/ojquestion">Problem Link</a> </p>
+            
+          <!-- <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/graphs/has-path-official/ojquestion">Problem Link</a>, <a href="" target="_blank">Question Video</a> , <a href="https://youtu.be/mlnnJd9k7oE" target="_blank">Solution Video</a> </p> -->
+           
+         <p>In order to understand it, we first understand our motive behind it.
+
+        </p>
+          </div>
+        </div>  
+        <div class="approach" id="approach">
+          <div class="sub-heading-2">AIM :</div>
+            <div class="content">
+             
+              <p>We wish to print the tree in a preorder using a command which looks something like figure 1.
+              </p>
+              <div class="img"><img class="articleImages" name="iterable_and_iterator_1.png" alt="img" /></div>
+               <p>We want the function to directly return all the elements in the tree in preorder without the use of indices. The output of the given tree should be 10, 20, 30, 50, 60, 40.
+              </p>
+
+              <p>It’d be very easy for us to print size, max, min or height without the use of recursion if we found a concept which resembled the function in the figure.   
+                </p>
+                <p>First, we make a class for Generic Trees.
+                </p>
+                <div class="sub-heading-2">GENERIC TREE CLASS:
+                </div>
+                <div class="content">
+                  <p>We make this class to represent the entire generic tree.
+
+                  </p>
+                  <p>We wrap the root property in this class. This is done so that we can apply our loop on the “tree” and not on the “root”. It has no other reason other than to be semantically correct.
+  
+                  </p>
+                </div>
+              
+              </div>
+             
+                 <div class='codeEditor' id=>
+                  <div class='editorialCode'>
+                    public class GenericTree
+                    {
+                      Node root;
+                      GenericTree(Node root)
+                      {
+                        this.root=root
+                      }
+                    }
+                    
+                   </div>
+                  <pre class='output'>
+                  </pre>
+                  <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+                  <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+              </div>
+              <div class="sub-heading-2">INTERFACES :</div>
+              <div class="content">
+                <p>An interface is a mechanism which contains just the method of those functions but not the body.</p>
+                <p>The purpose of these interfaces is to define the signature of the functions.
+                </p>
+
+                <div class="img"><img class="articleImages" name="iterable_and_iterator_2.png" alt="img" /></div>
+              <p>We can make a class A which implements this interface. This class A has an obligation to provide the body of all the functions defined under the Interface.
+               </p>
+               <div class="img"><img class="articleImages" name="iterable_and_iterator_3.png" alt="img" /></div>
+
+
+              <p>Hence, the interface declares the functions and the class implementing it defines those functions.
+
+              </p>
+               <p>This concept is quite useful because it sets the signature for a function. If developer 1 has to write a class1 and developer 2 has to write a class 2, and both have to use the same function, “Func( )”, then we want them both to call the function “Func( )” of the same signature. 
+              </p>
+              <p><b>OBJECT OF INTERFACE:
+              </b></p>
+              <p>We cannot make an object of the Interface using “new”.
+              </p>
+              <p>I obj=new I ( ); is NOT the correct way of making an object for an Interface I.
+              </p>
+              <p>Hence, in the reference/object of Interface we catch the instance of the class implementing it. Then we can call the required function for our object (see figure 4).
+              </p>
+              <div class="img"><img class="articleImages" name="iterable_and_iterator_4.png" alt="img" /></div>
+
+              </div>
+             
+              
+              <div class="sub-heading-2">ITERABLE :</div>
+              <div class="content">
+                <p>In Java an Interface called “Iterable” is present. We implement this interface when we want to use a loop like the one we want for our generic tree.
+                </p>
+                <p>It has only a function declared in its body which returns an object of type Iterator and the name of the function is “iterator()”. It doesn’t take any parameters.
+                </p>
+                <p>Hence, the class of  Generic Tree implements this Iterable interface. We also define this iterator function in our class.
+                </p>
+              </div>
+                <div class='codeEditor' id=>
+                  <div class='editorialCode'>
+                    public static class GenericTree implements Iterable< Integer>{
+                      Node root;
+                      GenericTree(Node root){
+                        this.root=root
+                      }
+                      public Iterator< Integer> iterator(){
+                        Iterator< Integer> obj=new GTPreorderIterator();
+                        return obj; 
+                      }
+                    }
+                    
+  
+                </div>
+                  <pre class='output'>
+                  </pre>
+                  <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+                  <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+              </div>
+
+             
+          
+            <div class="sub-heading-2">ITERATOR :</div>
+            <div class="content">
+              <p>Iterator interface contains 2 important functions:
+              </p>
+              <ol>
+                <li>hasNext()- It returns a Boolean value which tells us whether the next value is present or not.
+                </li>
+                <li>next()- It returns the next value.
+                </li>
+              </ol>
+
+              <p> Let’s see how we can write a code in the main function which is equivalent to figure 1 using Iterator.
+              </p>
+              <div class="img"><img class="articleImages" name="iterable_and_iterator_5.png" alt="img" /></div>
+              <p>This means that we check if the Iterator “gti” has a next value and if it does then we print that next value of “gti”.
+              </p>
+              <p>The above code is equivalent to the code given below.
+              </p>
+              <div class="img"><img class="articleImages" name="iterable_and_iterator_6.png" alt="img" /></div>
+              <p>We now define the hasNext() and next() functions for the class “GTPreorderIterator” which implements the Iterator interface.
+              </p>
+              <div class="img"><img class="articleImages" name="iterable_and_iterator_7.png" alt="img" /></div>
+            </div>
+         
+            <div class='codeEditor' id=>
+              <div class='editorialCode'>
+                //**********************hasNext() function************************
+                public boolean hasNext()
+                {
+                  if(nval==null)
+                  {
+                   return false;
+                  }else
+                  {
+                   return false;
+                }
+                }
+             
+            //**********************next() function************************
+               public Integer next(){
+                Integer fr=nval;
+                // moves nval forward, if not possible sets it to null
+                nval=null;
+                while(st.size()>0){
+                Pair top=st.peek();
+                if(top.state==-1){
+                    nval=top.node.data;
+                    top.state++;
+                    break;
+                }
+                else if(top.state>=0 && top.state < top.node.children.size()){
+                    Pair cp=new Pair(top.node.children.get(top.state),-1);
+                    st.push(cp);
+                    top.state++;
+                    
+                }
+                else{
+                    st.pop();
+                }
+               }
+               return fr;
+             }
+            }
+             
+            //**********************CLASS PAIR************************
+            private static class Pair{
+                  Node node;
+                  int state;
+                  Pair(Node node, int state){
+                  this.node=node;
+                  this.state=state;
+                  }
+            }
+            
+
+            </div>
+              <pre class='output'>
+              </pre>
+              <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+              <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+          </div>
+           <div class="content">
+            <p>
+              We highly suggest you watch the solution video of the previous question, ”Iterative Preorder and Postorder” and the video of “Iterable and Iterator”[20:10-28:56] to understand  the above code in detail.
+              </p>
+              <p>Iterative Pre-order and Post-order- Solution video</p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5ry6gRrzPqc?start=1210&end=1736" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p>Iterable and Iterator- Solution video
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/t4IKNhNBTdo?start=1210&end=1736" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+
+              <p>With this we conclude our concept of “Iterable and Iterator”. We want you to watch the video for this concept multiple times to ingrain it in your mind.
+              </p>
+              <p>We’ll next start with Binary Trees in the upcoming videos.</p>
+          </div>
+          
+          
+            </div>
+          </div> 
+        <div class="article-tags">
+         
+          <div class="tag">  Arrays </div>
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span>-Article by Shreeya Gupta
+
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
