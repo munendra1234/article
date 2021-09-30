@@ -66,18 +66,44 @@
            
           <div class="content">
             <div class="img"><img class="articleImages" name="tower_of_hanoi_1.png" alt="img" /></div>
-            <p><b>INPUT :</b></div>
+            
 
-              <p>You are required to enter
-                the number of discs and the integer id’s for all 3 towers.
-              </p>
-              <p>What is our code expected to do?
-              </p>
-              <!-- <div class="img"><img class="articleImages" name="introduction_to_graphs_and_its_represtation_1.png" alt="img" /></div> -->
-              <p>
-                You have to print instructions, in format n[n1 -> n2] which represents “move nth disc from tower n1 to tower n2”. Following these instructions, all discs should get transferred from source tower to destination tower, such that no larger disc is placed over a smaller disc.
+              
+              <!-- <ul>
+                <li>We have a strong belief that our algorithm can transfer n-1 discs from src tower to helper tower (using dest tower), which is comparatively a smaller problem.
+                </li>
+                <li>After this, we can transfer nth disc from src tower to dest tower by instruction n[n1 -> n2].
+                </li>
+                <li>Now, the only task left is to transfer the n-1 discs from helper tower to dest tower (using src tower), which we believe our algorithm is capable of.
+                </li>
+              </ul>  -->
+              <!-- <p>int marksA = 75;	int marksB = 91;	int marksC = 82;
+              </p>         
+              <p>I know so many big words. Let's break it down.
+              </p> -->
+              <!-- <p></p>
+              <p></p>
+              <p></p>
+              <p></p> -->
+            </div>
+          </div>
+        </div>  
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+            <div class="content">
+              <p><b>INPUT :</b></div>
 
-              </p>
+                <p>You are required to enter
+                  the number of discs and the integer id’s for all 3 towers.
+                </p>
+                <p>What is our code expected to do?
+                </p>
+                <!-- <div class="img"><img class="articleImages" name="introduction_to_graphs_and_its_represtation_1.png" alt="img" /></div> -->
+                <p>
+                  You have to print instructions, in format n[n1 -> n2] which represents “move nth disc from tower n1 to tower n2”. Following these instructions, all discs should get transferred from source tower to destination tower, such that no larger disc is placed over a smaller disc.
+  
+                </p>
+            
               <p>Rules of game :
               </p>
               <ol>
@@ -104,29 +130,6 @@
               <p>If(n==0) return;
               </p>
 
-              
-              <!-- <ul>
-                <li>We have a strong belief that our algorithm can transfer n-1 discs from src tower to helper tower (using dest tower), which is comparatively a smaller problem.
-                </li>
-                <li>After this, we can transfer nth disc from src tower to dest tower by instruction n[n1 -> n2].
-                </li>
-                <li>Now, the only task left is to transfer the n-1 discs from helper tower to dest tower (using src tower), which we believe our algorithm is capable of.
-                </li>
-              </ul>  -->
-              <!-- <p>int marksA = 75;	int marksB = 91;	int marksC = 82;
-              </p>         
-              <p>I know so many big words. Let's break it down.
-              </p> -->
-              <!-- <p></p>
-              <p></p>
-              <p></p>
-              <p></p> -->
-            </div>
-          </div>
-        </div>  
-        <div class="approach" id="approach">
-          <div class="sub-heading-1">Approach :</div>
-            <div class="content">
               <p><b>CODE :  </b></p>
 
                 <div class='codeEditor' id=>
@@ -191,84 +194,44 @@
                 <div class="img"><img class="articleImages" name="tower_of_hanoi_6.png" alt="img" /></div>
                 <P>Now, 1ABC makes the right call to 0CBA, which is again the base case, so the flow returns to 1ABC. 1ABC has executed fully, it gets wiped out from the stack and the flow comes back to 2ACB. Now, for 2ACB, the left call has been executed and now it’s time for IN-region execution. So we print 2[A -> C].
                 </P>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_7.png" alt="img" /></div>
+                <p>Now, 2ACB makes the right call to 1BCA. 1BCA makes a left call to 0BAC (Base Case), then executes the In-region by printing 1[B -> C].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_8.png" alt="img" /></div>
+                <p>Lastly 1BCA makes the right call to 0ACB (Base Case). Now, 1BCA has executed fully, so it gets wiped out from the stack and the control falls back to 2ACB. Again, 2ACB has also executed completely, thus, it also gets wiped out from stack and the control comes down to 3ABC. Now, for 3ABC, the left call has been executed and now it’s time for IN-region execution. So we print 3[A -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_9.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_10.png" alt="img" /></div>
+                <p>Now, 3ABC makes the right call to 2CBA. 2CBA makes a left call to 1CAB, which in-turn makes a left call to 0CBA (Base Case). The control returns back to 1CAB, for which now, IN-region has to be executed by printing 1[C -> A]. </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_11.png" alt="img" /></div>
+                <p>Now, 1CAB makes the right call to 0BAC (Base Case). The control comes back to 1CAB, which gets wiped out from stack as it has successfully executed. Now, the control comes down to 2CBA, for which the left call is completed. The IN-region gets executed for 2CBA by printing 2[C -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_12.png" alt="img" /></div>
+                <p>2CBA makes the right call to 1ABC, which in-turn makes the left call to 0ACB (Base case). The control comes back to 1ABC and since, left call has been executed, the IN-region is executed now by printing 1[A -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_13.png" alt="img" /></div>
+                <p>1ABC makes a right call to 0CBA (Base Case). The control comes back to 1ABC, which returns the control to 2CBA, as it has executed successfully. 2CBA gets wiped out from the stack and returns control to 3ABC as it has executed successfully. Same is the case with 3ABC, it also gets wiped out from stack and returns control to main() (from where the function was initially called).
+                </p>
+                <p>Now, if you follow the instructions you’ve printed all along, you’ll see that all the discs have reached the destination tower, following all the rules.
+                </p>
+                <div class="sub-heading-2">Congratulations !! We did it.
+                </div>
+                <p>I know, it might be difficult to absorb that this small piece of code did this whole task, but that’s the beauty of recursion.
+                </p>
+                <p>I hope that you found this problem as interesting as I did.</p>
+                <p>Hoping to meet you in the next module.
+                </p>
+                
                 
 
-                <div class='codeEditor' id=>
-                  <div class='editorialCode'>
-                    import java.util.*;
-                    public class Main{
-                            public static void main(String[] args) {
-                                    Scanner scn = new Scanner(System.in);
-                                    int[] marks = new int[5];
-                                    for (int i = 0; i < marks.length; i++) {
-                                            marks[i] = scn.nextInt();
-                                    }
-                                    for (int i = 0; i < marks.length; i++) {
-                                            System.out.println(marks[i]);
-                                    }
-                            }
-                    }
-                     
-                </div>
-                  <pre class='output'>
-                  </pre>
-                  <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
-                  <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
-              </div><br>
-
-               <p>This code will take 5 integer inputs for array marks and print them on the console.
-                </p>
-                <p>
-                  You’ll agree with me that when you create a variable, it is stored somewhere in the memory. Somewhere in the universe!! Same is the case with arrays. 
-                </p>
-                <div class="sub-heading-2">Contiguous memory locations :</div>
-                <p> When you write new int[7], memory equivalent to 7 integer variables is assigned to the array.  Contiguous memory locations means that these memory locations are in continuation, not scattered throughout the memory.
-                </p>
-                <div class="sub-heading-2">Applications on Array : </div>
-                <ul>
-                  <li>Arrays store data elements of the same data type.
-                  </li>
-                  <li>  They are used to implement other data structures like Stacks, Queues, Heaps, etc.
-                  </li>
-                </ul>
-                <div class="sub-heading-2">Disadvantages of using arrays: </div>
-                <ul>
-                  <li>You can’t change the size of an array, once declared.
-                  </li>
-                </ul>
-                <p>We hope that this article helped you to understand arrays.
-                </p>
+               
             </div>
         
 
-        <!-- <div class="content">
-          <p>You can refer to the solution video to understand the code written above. So, this is all about the basics and representation of a graph. Now, let us see where we can use graphs in our coding problems?</p>
-          <div class="youtube-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/t0r04fYdT7U?start=313&end=" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <p><b>Where can we use graphs?</b>
-          </p>
-          <p>Consider the graph given below:
-          </p><br>
-          <div class="img"><img class="articleImages" name="introduction_to_graphs_and_its_represtation_14.png" alt="img" /></div>
-          <p>Let us say the vertices represent a particular city. So, we want to find out whether there is a path from city 2 to city 5. These kinds of problems can be solved using the graph data structure.
-          </p>
-          <div class="img"><img class="articleImages" name="introduction_to_graphs_and_its_represtation_15.png" alt="img" /></div>
-          <p>Now, let us say that we have this kind of a city network and the weights of the edges represent the distance between the cities (vertices). Let’s say we have to find the shortest path from city 1 to city 6 (in terms of number of kilometers). It may also happen that we want to find the shortest path from city 1 to city 6 in </p>
-          <p>terms of the number of cities that we have to go through for visiting city 6. These kinds of problems are also solved using graphs.
-          </p>
-          <p>The problems such as finding the minimum number of wires to connect a LAN network (minimum cost spanning tree) and many more are also solved using graph data structure. Hence, this data structure is one of the most famous and important as far as coding rounds and interviews of big tech companies are concerned. So, study this with your full concentration and give it your 200%. Till then, Happy Coding!!!
-          </p>
-          
-           <div class="youtube-video">
-            <iframe width="560" height="315" src="hhttps://www.youtube.com/watch?v=jMwLFkI2Zbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p>We conclude the discussion of this problem here. See you in the next question. Bye-bye.
-        </p>
-        <p></p> -->
+       
         </div> 
         <div class="article-tags">
-          <div class="tag"> Hashmap </div>
+         
           <div class="tag">  Arrays </div>
         </div>
         <div class="author">
