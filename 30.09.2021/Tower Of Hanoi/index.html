@@ -174,12 +174,12 @@
 
 
 
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_2.1.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_3.png" alt="img" /></div>
 
                 <p>For this particular question, we only have the In – region. So, the code looks like : 
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_2.1.png" alt="img" /></div><br>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_3.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_4.png" alt="img" /></div><br>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_5.png" alt="img" /></div>
                 <div class="sub-heading-2"> Recursion tree</div>
                 <p>To build the recursion tree refer the solution video </p>
                 <div class="youtube-video">
@@ -187,31 +187,33 @@
                 </div>
                 <p>We start with 3 discs and towers – A, B, C  🡺 toh(3, A, B, C)
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_4.png" alt="img" /></div>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_5.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_6.png" alt="img" /></div>
+                <p>A series of left calls are made, i.e. 3ABC 🡺 2ACB 🡺 1ABC 🡺 0ABC. 0ACB being the base case, the flow returns to 1ABC, for which the left call is executed, now it’s time for IN-region execution. So we print 1[A -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_7.png" alt="img" /></div>
                 <P>A series of left calls are made, i.e. 3ABC 🡺 2ACB 🡺 1ABC 🡺 0ABC. 0ACB being the base case, the flow returns to 1ABC, for which the left call is executed, now it’s time for IN-region execution. So we print 1[A -> B].
                 </P>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_6.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_8.png" alt="img" /></div>
                 <P>Now, 1ABC makes the right call to 0CBA, which is again the base case, so the flow returns to 1ABC. 1ABC has executed fully, it gets wiped out from the stack and the flow comes back to 2ACB. Now, for 2ACB, the left call has been executed and now it’s time for IN-region execution. So we print 2[A -> C].
                 </P>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_7.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_9.png" alt="img" /></div>
                 <p>Now, 2ACB makes the right call to 1BCA. 1BCA makes a left call to 0BAC (Base Case), then executes the In-region by printing 1[B -> C].
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_8.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_10.png" alt="img" /></div>
                 <p>Lastly 1BCA makes the right call to 0ACB (Base Case). Now, 1BCA has executed fully, so it gets wiped out from the stack and the control falls back to 2ACB. Again, 2ACB has also executed completely, thus, it also gets wiped out from stack and the control comes down to 3ABC. Now, for 3ABC, the left call has been executed and now it’s time for IN-region execution. So we print 3[A -> B].
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_9.png" alt="img" /></div>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_10.png" alt="img" /></div>
-                <p>Now, 3ABC makes the right call to 2CBA. 2CBA makes a left call to 1CAB, which in-turn makes a left call to 0CBA (Base Case). The control returns back to 1CAB, for which now, IN-region has to be executed by printing 1[C -> A]. </p>
                 <div class="img"><img class="articleImages" name="tower_of_hanoi_11.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_12.png" alt="img" /></div>
+                <p>Now, 3ABC makes the right call to 2CBA. 2CBA makes a left call to 1CAB, which in-turn makes a left call to 0CBA (Base Case). The control returns back to 1CAB, for which now, IN-region has to be executed by printing 1[C -> A]. </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_13.png" alt="img" /></div>
                 <p>Now, 1CAB makes the right call to 0BAC (Base Case). The control comes back to 1CAB, which gets wiped out from stack as it has successfully executed. Now, the control comes down to 2CBA, for which the left call is completed. The IN-region gets executed for 2CBA by printing 2[C -> B].
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_12.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_14.png" alt="img" /></div>
                 <p>2CBA makes the right call to 1ABC, which in-turn makes the left call to 0ACB (Base case). The control comes back to 1ABC and since, left call has been executed, the IN-region is executed now by printing 1[A -> B].
                 </p>
-                <div class="img"><img class="articleImages" name="tower_of_hanoi_13.png" alt="img" /></div>
+                <!-- <div class="img"><img class="articleImages" name="tower_of_hanoi_15.png" alt="img" /></div>
                 <p>1ABC makes a right call to 0CBA (Base Case). The control comes back to 1ABC, which returns the control to 2CBA, as it has executed successfully. 2CBA gets wiped out from the stack and returns control to 3ABC as it has executed successfully. Same is the case with 3ABC, it also gets wiped out from stack and returns control to main() (from where the function was initially called).
-                </p>
+                </p> -->
                 <p>Now, if you follow the instructions you’ve printed all along, you’ll see that all the discs have reached the destination tower, following all the rules.
                 </p>
                 <div class="sub-heading-2">Congratulations !! We did it.
