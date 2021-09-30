@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Saddle Price</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>Saddle Price
+            </p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              "If your code doesn't work and you are disappointed, it’s fine but if you are surprised, it’s not! <br>- Janet Fitch 
+             </p>
+            
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">Saddle Price</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p><b>Welcome back reader.
+              We hope that this module of 2D Arrays is helping you learn new concepts.
+              
+            </b></p>
+            <p>In this article, we are going to solve The problem of saddle price.  The saddle price is defined as the least value in the row and the maximum value in the column.
+            </p>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/2d-arrays/saddle-price-official/ojquestion">Problem Link</a>, <a href="https://youtu.be/xt0Og8YaON4" target="_blank">Question Video</a> , <a href="https://youtu.be/6YIWq2JGzEQ" target="_blank">Solution Video</a> </p>
+            
+          <!-- <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/graphs/has-path-official/ojquestion">Problem Link</a>, <a href="" target="_blank">Question Video</a> , <a href="https://youtu.be/mlnnJd9k7oE" target="_blank">Solution Video</a> </p> -->
+           
+         
+          </div>
+        </div>  
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+            <div class="content">
+              <p>As any other question, the first step of this question is also taking an input from the user which will be : 
+              </div>
+              <ul>
+                <li>The dimension of the matrix (Square Matrix)
+                </li>
+                <li>The elements of this matrix 
+                </li>
+              </ul>
+                <p>Let us quickly take the input and move forward with the solution.
+                </p>
+                <div class='codeEditor' id=>
+                  <div class='editorialCode'>
+                    Scanner scn = new Scanner(System.in);
+                    int n = scn.nextInt();
+                    int[][] arr = new int[n][n];
+                    for (int i = 0; i < n; i++) {
+                            for (int j = 0; j < n; j++) {
+                                    arr[i][j] = scn.nextInt();
+                            }
+                    }
+                   </div>
+                  <pre class='output'>
+                  </pre>
+                  <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+                  <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+              </div>
+              <p>The first condition for an element to be a saddle price is that it should be the minimum element in the row and after that we check if it is the maximum element in the column or not.
+              </p>
+              <p>Let’s start solving this problem and don't worry, this is not a difficult problem. Trust me, this is an easy one. 
+              </p>
+              <p>So, let us move step by step. As discussed, the first step is to find the minimum element in the row. Let’s work upon that.
+              </p>
+              <p><b>Working : 
+              </b></p>
+               <p>We enter a row and assume that it’s first element is the minimum element. Then as we move further in the row, we compare our assumed minimum element with every element and as we encounter a new minimum, we update our minimum.
+              </p>
+                <!-- <div class="img"><img class="articleImages" name="introduction_to_graphs_and_its_represtation_1.png" alt="img" /></div> -->
+                <p>
+                  The extra colno is to remember what was the column number of our minimum element.
+                </p>
+
+                <div class='codeEditor' id=>
+                  <div class='editorialCode'>
+                    for (int i = 0; i < n; i++)	//row
+                    {
+                            min = arr[ i ][ 0 ];
+                            for (int j = 0; j < n; j++) {	//columns
+                                    if(min > arr[i][j]){
+                                            min = arr[i][j];
+                                            colno = j;
+                                    }
+                            }
+                            System.out.print("Minimum element : " + min);
+                            System.out.print("Row : " + i);
+                            System.out.print("Column : " + colno);
+                    }
+    
+                </div>
+                  <pre class='output'>
+                  </pre>
+                  <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+                  <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+              </div>
+            
+              <p>This piece of code prints the minimum element and it’s coordinates for every row.
+              </p>
+              <p>Let’s consider that we have found the minimum element of the First row. According to the definition of sadness price, now we need to determine if it is the maximum element of its column.
+                </p>
+
+                <p>If yes, then it is the saddle price of this given matrix, else we will have to move to the next row and repeat the same process again.
+                  This working is described briefly in the solution video from . 
+                </b>>
+                <div class="youtube-video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/6YIWq2JGzEQ?start=60&end=130" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                </p>
+                <div class="analysis">
+                  <div class="sub-heading-2">Time Complexity :</div>
+                  <div class="content">
+                    <p> In the worst-case scenario we might need to traverse all the elements in the matrix, so the time complexity comes out to be n square (n*n). 
+                    </p>
+                  </div>
+               <div class="sub-heading-2">Space Complexity :</div>
+                <div class="content">
+                  <p> Since we are using only a handful of variables, space complexity is constant, O( 1 ).
+                  </p>
+                </div>
+              </div>
+             <p>Now, take some time to write this code and come back to take any help you require.
+              </p>
+              <div class='codeEditor' id=>
+                <div class='editorialCode'>
+                  import java.util.*;
+ 
+                  public class Main {
+                   
+                          public static void main(String[] args) throws Exception {
+                                  Scanner scn = new Scanner(System.in);
+                                  int n = scn.nextInt();
+                                  int[][] arr = new int[n][n];
+                                  for (int i = 0; i < n; i++) {
+                                          for (int j = 0; j < n; j++) {
+                                                  arr[i][j] = scn.nextInt();
+                                          }
+                                  }
+                                  int colno = 0, min = 0;
+                                  for (int i = 0; i < n; i++) {		// rows
+                                          min = arr[i][0];
+                                          for (int j = 0; j < n; j++) { 	// columns
+                                                  if (min > arr[i][j]) {
+                                                          min = arr[i][j];
+                                                          colno = j;
+                                                  }
+                                          }
+                                          boolean potentialAns = true;
+                                          for (int r = 0; r < n; r++) {
+                                                  if (min < arr[r][colno]) {
+                                                          potentialAns = false;
+                                                          break;
+                                                  }
+                                          }
+                                          if (potentialAns == true) {
+                                                  System.out.print(min);
+                                                  return;
+                                          }
+                                  }
+                                  System.out.print("Invalid Input");
+                          }
+                  }
+                  
+  
+              </div>
+                <pre class='output'>
+                </pre>
+                <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+                <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+            </div>
+               
+
+                <p>Let’s go through the code once. 
+                </p>
+                <p>After taking input, using a loop(‘ i ’) we parse every row.
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_2.1.png" alt="img" /></div>
+
+                <p>ROW 
+                </p>
+                <ol>
+                  <li>The minimum element comes out to be 11.Now, min contains 11 and colno contains 0. By marking potentailAns = true, we assume that this min could be the saddle price. We traverse every element in the column of min ( colno = 0 ), to check if it is the maximum element in its column.  
+                    Since, 11 is not the highest element in this column, we break out of the loop, marking potentailAns = false. (that 11 is not our potential answer.)
+                    </li>
+                </ol>
+                <p>ROW</p>
+                <ol>
+                  <li>The minimum element comes out to be 21.Now, min = 21 and colno = 0. We mark potentailAns = true and assume that this min could be the saddle price. We traverse every element in the column of min ( colno = 0 ), to check if it is the maximum element in its column.  
+                    Since, 21 is not the highest element in this column, we break out of the loop, marking potentailAns = false. (that 21 is not saddle price.)
+                    </li>
+                </ol>
+                <p>ROW</p>
+                <ol>
+                  <li>The process is exactly the same for this row. Give it a try yourself, I am sure you will be able to do this. </li>
+                </ol>
+                <p>ROW</p>
+                <ol>
+                  <li>The minimum element comes out to be 41.Now, min = 11 and colno = 0. We mark potentailAns = true assuming that this min could be the saddle price. We traverse every element in the column of min ( colno = 0 ), to check if it is the maximum element in its column.   </li>
+                </ol>
+               
+
+                <p>Since, 41 is the highest element in this column,thus we don’t enter the if condition. Our potentailAns = true, thus we print the saddle price and return.
+                </p>
+                <p>And<b> VOILA!!</b> This is how we have to find the saddle price.
+                  Since, there is a possibility that a matrix might not contain a saddle price, in that case, we come out of all the loops and at the last we print “invalid input”
+                  </p>
+                  <p>The whole process and the code is explained in the solution video from 2:10 - 8:20.
+                  </p>
+                  <div class="youtube-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6YIWq2JGzEQ?start=130&end=468" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                  <p>Now, there is a fun fact, that in a matrix there can never be more than 1 saddle price.
+                  </p>
+                  <p>Let’s see how.
+                  </p>
+                  <p>In the given figure, we have assumed that we have 2 saddle prices i.e. H and J. Since they are saddle prices, they are smallest in the row and largest in the column.
+                  </p>
+                  <div class="img"><img class="articleImages" name="saddle_price_2.png" alt="img" /></div><br>
+                  <p>Thus, H is greater than F, which is a row element and smaller than L, which is another column element. Same for J, J > F and J < L.
+                    Putting the 2 inequalities of H together we get,  L < H < F ⇒ L < F.
+                    And similarly putting together the 2 inequalities of J we get, F < J < L ⇒ F < L.
+                    </p>
+                    <p>Thus, H is greater than F, which is a row element and smaller than L, which is another column element. Same for J, J > F and J < L.
+                      Putting the 2 inequalities of H together we get,  L < H < F ⇒ L < F.
+                      And similarly putting together the 2 inequalities of J we get, F < J < L ⇒ F < L.
+                      </p>
+                      <div class="youtube-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6YIWq2JGzEQ?start=0&end=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                      <p>We hope that you found this question interesting and understood every bit of it.
+                      </p>
+                      <p>Hoping to meet you in the next module.
+                      </p>
+
+
+                <!-- <div class="img"><img class="articleImages" name="tower_of_hanoi_3.png" alt="img" /></div>
+                <div class="sub-heading-2"> Recursion tree</div>
+                <p>To build the recursion tree refer the solution video </p>
+                <div class="youtube-video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/QDBrZFROuA0?start=850" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>We start with 3 discs and towers – A, B, C  🡺 toh(3, A, B, C)
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_4.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_5.png" alt="img" /></div>
+                <P>A series of left calls are made, i.e. 3ABC 🡺 2ACB 🡺 1ABC 🡺 0ABC. 0ACB being the base case, the flow returns to 1ABC, for which the left call is executed, now it’s time for IN-region execution. So we print 1[A -> B].
+                </P>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_6.png" alt="img" /></div>
+                <P>Now, 1ABC makes the right call to 0CBA, which is again the base case, so the flow returns to 1ABC. 1ABC has executed fully, it gets wiped out from the stack and the flow comes back to 2ACB. Now, for 2ACB, the left call has been executed and now it’s time for IN-region execution. So we print 2[A -> C].
+                </P>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_7.png" alt="img" /></div>
+                <p>Now, 2ACB makes the right call to 1BCA. 1BCA makes a left call to 0BAC (Base Case), then executes the In-region by printing 1[B -> C].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_8.png" alt="img" /></div>
+                <p>Lastly 1BCA makes the right call to 0ACB (Base Case). Now, 1BCA has executed fully, so it gets wiped out from the stack and the control falls back to 2ACB. Again, 2ACB has also executed completely, thus, it also gets wiped out from stack and the control comes down to 3ABC. Now, for 3ABC, the left call has been executed and now it’s time for IN-region execution. So we print 3[A -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_9.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_10.png" alt="img" /></div>
+                <p>Now, 3ABC makes the right call to 2CBA. 2CBA makes a left call to 1CAB, which in-turn makes a left call to 0CBA (Base Case). The control returns back to 1CAB, for which now, IN-region has to be executed by printing 1[C -> A]. </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_11.png" alt="img" /></div>
+                <p>Now, 1CAB makes the right call to 0BAC (Base Case). The control comes back to 1CAB, which gets wiped out from stack as it has successfully executed. Now, the control comes down to 2CBA, for which the left call is completed. The IN-region gets executed for 2CBA by printing 2[C -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_12.png" alt="img" /></div>
+                <p>2CBA makes the right call to 1ABC, which in-turn makes the left call to 0ACB (Base case). The control comes back to 1ABC and since, left call has been executed, the IN-region is executed now by printing 1[A -> B].
+                </p>
+                <div class="img"><img class="articleImages" name="tower_of_hanoi_13.png" alt="img" /></div>
+                <p>1ABC makes a right call to 0CBA (Base Case). The control comes back to 1ABC, which returns the control to 2CBA, as it has executed successfully. 2CBA gets wiped out from the stack and returns control to 3ABC as it has executed successfully. Same is the case with 3ABC, it also gets wiped out from stack and returns control to main() (from where the function was initially called).
+                </p>
+                <p>Now, if you follow the instructions you’ve printed all along, you’ll see that all the discs have reached the destination tower, following all the rules.
+                </p>
+                <div class="sub-heading-2">Congratulations !! We did it.
+                </div>
+                <p>I know, it might be difficult to absorb that this small piece of code did this whole task, but that’s the beauty of recursion.
+                </p>
+                <p>I hope that you found this problem as interesting as I did.</p>
+                <p>Hoping to meet you in the next module.
+                </p> -->
+                
+                
+
+               
+            </div>
+        
+
+       
+        </div> 
+        <div class="article-tags">
+         
+          <div class="tag">  Arrays </div>
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span> Ishu Goel
+
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
