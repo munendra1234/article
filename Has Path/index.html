@@ -96,7 +96,7 @@
               <ul>
               <li>The problem here is to check whether there is any path present between src and dest. To solve this problem we will use Recursion.
               </li>
-              <pliWe know that if there is a path between src vertex and dest vertex then there must also exist a path between src’s neighbor vertex and dest vertex too. 
+              <li>We know that if there is a path between src vertex and dest vertex then there must also exist a path between src’s neighbor vertex and dest vertex too. 
             </li>
                 <li>So we can develop some expectation and faith for this problem.
 
@@ -199,18 +199,22 @@
             <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
            </div>
-            <p><b>Statement-1 is false for source 0. So control jumps to statement-2 and the value at index 0 is set true in the visited array.
-            </b>
-            </p>
-            <p>Then using a for loop, a recursive call to 0’s neighbor is made. First neighbor is 1.
-            </p>
-            <p>Then we check whether 1 has been visited earlier or not. 1 has not been visited. Therefore, <b>a recursive call is made to hasPath(1, 6).</b>
-
-            </p>
-            <div class="img"><img class="articleImages" name="hase_path_2.png" alt="img" /></div>
-           <p><b>Statement-1 is false for source 1. So control jumps to statement-2 and the value at index 1 is set true in the visited array.
-          </b></p>
+          </ul>
           <ul>
+            <li><b>Statement-1 is false for source 0. So control jumps to statement-2 and the value at index 0 is set true in the visited array.
+            </b>
+          </li>
+            <li>Then using a for loop, a recursive call to 0’s neighbor is made. First neighbor is 1.
+            </li>
+            <li>Then we check whether 1 has been visited earlier or not. 1 has not been visited. Therefore, <b>a recursive call is made to hasPath(1, 6).</b>
+            </li>
+          </u>
+            <div class="img"><img class="articleImages" name="hase_path_2.png" alt="img" /></div>
+            </ul>
+          <ul>
+           <li><b>Statement-1 is false for source 1. So control jumps to statement-2 and the value at index 1 is set true in the visited array.
+          </b></li>
+          
             <li>
               Then using a for loop, a recursive call to 1’s neighbor is made. First neighbor is 0.
             </li>
@@ -249,7 +253,7 @@
             </li>
             <li>Then we check whether 6 has been visited earlier or not. 6 hasn’t been visited, therefore hasPath(6, 6) will be called.
             </li>
-            <li>Statement-1 is true for source 6. Therefore ‘true’ is returned.
+            <li><b>Statement-1 is true for source 6. Therefore ‘true’ is returned.</b>
             </li>
           </ul>
           </div>
